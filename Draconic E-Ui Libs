@@ -48,6 +48,25 @@ function Utility:TweenObject(obj, properties, duration, ...)
 end
 
 
+function library:Seperator()
+    local seperator = {}
+
+    seperator.asset = self.Lib.UI.Main.Container.Seperator:Clone()
+    seperator.asset.Parent = self.Lib.UI.Main.Container
+
+    seperator.Show = function()
+        seperator.asset.Visible = true
+    end
+
+    seperator.Hide = function()
+        seperator.asset.Visible = false
+    end
+
+    table.insert(self.Assets, seperator)
+    return setmetatable(seperator, library)
+end
+
+
 local themes = {
     SchemeColor = Color3.fromRGB(74, 99, 135),
     Background = Color3.fromRGB(36, 37, 43),
