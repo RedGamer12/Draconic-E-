@@ -138,6 +138,24 @@ end)
 
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 
+function Kavo:Seperator()
+    local seperator = {}
+
+    seperator.asset = self.Lib.UI.Main.Container.Seperator:Clone()
+    seperator.asset.Parent = self.Lib.UI.Main.Container
+
+    seperator.Show = function()
+        seperator.asset.Visible = true
+    end
+
+    seperator.Hide = function()
+        seperator.asset.Visible = false
+    end
+
+    table.insert(self.Assets, seperator)
+    return setmetatable(seperator, library)
+end
+
 function Kavo:ToggleUI()
     if game.CoreGui[LibName].Enabled then
         game.CoreGui[LibName].Enabled = false
